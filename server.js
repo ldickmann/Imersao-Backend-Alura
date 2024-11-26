@@ -1,7 +1,9 @@
-// Imersão Back-end Alura | Aluno: Lucas E. Dickmann
+// Imersão Back-end Node.js | Alura | Aluno: Lucas E. Dickmann
 
 import express from "express";
+import routes from "./src/routes/postsRoutes.js";
 
+// Array de posts (dados fictícios)
 const posts = [
   {
     id: 1,
@@ -10,7 +12,8 @@ const posts = [
   },
   {
     id: 2,
-    descricao: "Um gatinho comandante dando ordens à sua tripulação de ratinhos",
+    descricao:
+      "Um gatinho comandante dando ordens à sua tripulação de ratinhos",
     image: "https://placecats.com/millie/300/150",
   },
   {
@@ -20,34 +23,22 @@ const posts = [
   },
   {
     id: 4,
-    descricao: "Um gatinho astronauta cultivando plantas em uma estação espacial",
+    descricao:
+      "Um gatinho astronauta cultivando plantas em uma estação espacial",
     image: "https://placecats.com/millie/300/150",
   },
   {
     id: 5,
     descricao: "Um gatinho astronauta pilotando um disco voador",
     image: "https://placecats.com/millie/300/150",
-  }
+  },
 ];
 
+// Cria uma instância do Express
 const app = express();
-app.use(express.json());
+routes(app);
 
+// Inicia o servidor na porta 3000
 app.listen(3000, () => {
   console.log("Servidor escutando ");
-});
-
-app.get("/posts", (req, res) => {
-  res.status(200).json(posts);
-});
-
-function buscarPostPorID(id) {
-  return posts.findIndex((post) => {
-    return post.id === Number(id);
-  })
-}
-
-app.get("/posts/:id", (req, res) => {
-  const index = buscarPostPorID(req.params.id);
-  res.status(200).json(posts[index]);
 });
