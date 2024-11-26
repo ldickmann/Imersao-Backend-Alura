@@ -10,12 +10,15 @@ Este projeto é uma API backend desenvolvida em Node.js durante a Imersão Alura
 
 - Listar todos os posts
 - Conectar ao banco de dados MongoDB
+- ...
+- ...
 
 ## Tecnologias Utilizadas
 
 - Node.js
 - Express
 - MongoDB
+- ...
 
 ## Instalação
 
